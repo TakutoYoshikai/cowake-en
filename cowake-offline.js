@@ -229,28 +229,28 @@ confirmButton.onclick = function() {
 }
 
 function enterExample() {
-  document.getElementById("tsv").value = `N101	佐藤いちご	さとういちご
-N102	鈴木もも	すずきもも
-N103	高橋マスカット	たかはしマスカット
-N104	田中なし	たなかなし
-N105	伊藤ぶどう	いとうぶどう
-N106	渡辺マンゴー	わたなべマンゴー
-N107	山本メロン	やまもとメロン
-N108	中村みかん	なかむらみかん
-N109	小林りんご	こばやしりんご
-N110	加藤すいか	かとうすいか
-N111	吉田パイナップル	よしだパイナップル
-N112	山田キウイ	やまだキウイ
-N113	佐々木バナナ	ささきバナナ
-N114	山口さくらんぼ	やまぐちさくらんぼ
-N115	松本かき	まつもとかき
-N116	井上ライチ	いのうえライチ
-N117	木村パパイヤ	きむらパパイヤ
-N118	林ざくろ	はやしざくろ
-N119	斎藤すもも	さいとうすもも
-N120	清水デコポン	しみずデコポン
-N121	山崎レモン	やまざきレモン
-N122	森オレンジ	もりオレンジ`
+  document.getElementById("tsv").value = `N001	Garnet Smith	Garnet.Smith@example.com
+N002	Amethyst Johnson	Amethyst.Johnson@example.com
+N003	Aquamarine Williams	Aquamarine.Williams@example.com
+N004	Bloodstone Brown	Bloodstone.Brown@example.com
+N005	Coral Jones	Coral.Jones@example.com
+N006	Diamond Miller	Diamond.Miller@example.com
+N007	Emerald Davis	Emerald.Davis@example.com
+N008	Jade Garcia	Jade.Garcia@example.com
+N009	Moonstone Rodriguez	Moonstone.Rodriguez@example.com
+N010	Pearls Wilson	Pearls.Wilson@example.com
+N011	Ruby Martinez	Ruby.Martinez@example.com
+N012	Peridot Anderson	Peridot.Anderson@example.com
+N013	Thirdonics Taylor	Thirdonics.Taylor@example.com
+N014	Sapphire Thomas	Sapphire.Thomas@example.com
+N015	Opal Hernandez	Opal.Hernandez@example.com
+N016	Tourmaline Moore	Tourmaline.Moore@example.com
+N017	Topaz Martin	Topaz.Martin@example.com
+N018	Citrine Jackson	Citrine.Jackson@example.com
+N019	Turquoise Thompson	Turquoise.Thompson@example.com
+N020	Lapis Lazuli White	Lapis.Lazuli.White@example.com
+N021	Tanzanite Lopez	Tanzanite.Lopez@example.com
+N022	Gold Lee	Gold.Lee@example.com`
   minMembers.value = 3;
   memberCount.value = 22;
 }
