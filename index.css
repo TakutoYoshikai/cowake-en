@@ -73,6 +73,7 @@ input[type="number"] {
 }
 .main {
   width: 420px;
+  padding-top: 30px;
   margin-left: auto;
   margin-right: auto;
 }
