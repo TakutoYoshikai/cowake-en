@@ -97,8 +97,8 @@ function parseTsv(text) {
 }
 
 function parseTsvFront(text) {
-  let members = [];
-  let records = Papa.parse(text, {
+  const members = [];
+  const records = Papa.parse(text, {
     delimiter: "\t",
     header: false,
   }).data;
@@ -121,7 +121,7 @@ function isPrimeNumber(n) {
 }
 function makePrimeNumbers() {
   let n = 1;
-  let result = [];
+  const result = [];
   while (n <= 200) {
     if (isPrimeNumber(n)) {
       result.push(n);
@@ -138,15 +138,15 @@ let NUM_MAX_ROOMS = 1000;
 function makeGroupsByMemberCount(count, minMembers) {
   let groups = [];
 
-  for (let n of primeNumbers) {
+  for (const n of primeNumbers) {
     if (n <= NUM_MAX_ROOMS) {
-      let numMinMembers = Math.floor(count / n);
-      let numMaxMembers = numMinMembers + 1;
-      let numMaxRooms = count % n;
-      let numMinRooms = n - numMaxRooms;
-      let numSessions = n;
+      const numMinMembers = Math.floor(count / n);
+      const numMaxMembers = numMinMembers + 1;
+      const numMaxRooms = count % n;
+      const numMinRooms = n - numMaxRooms;
+      const numSessions = n;
       if (minMembers <= numMinMembers && n >= numMaxMembers) {
-        let group = new Group(null, n, numMaxMembers, numMaxRooms, numMinMembers, numMinRooms, numSessions, null);
+        const group = new Group(null, n, numMaxMembers, numMaxRooms, numMinMembers, numMinRooms, numSessions, null);
         groups.push(group);
       }
     }
@@ -154,17 +154,17 @@ function makeGroupsByMemberCount(count, minMembers) {
   return groups;
 }
 function makeGroups(members, minMembers) {
-  let groups = [];
+  const groups = [];
 
-  for (let n of primeNumbers) {
+  for (const n of primeNumbers) {
     if (n <= NUM_MAX_ROOMS) {
-      let numMinMembers = Math.floor(members.length / n);
-      let numMaxMembers = numMinMembers + 1;
-      let numMaxRooms = members.length % n;
-      let numMinRooms = n - numMaxRooms;
-      let numSessions = n;
+      const numMinMembers = Math.floor(members.length / n);
+      const numMaxMembers = numMinMembers + 1;
+      const numMaxRooms = members.length % n;
+      const numMinRooms = n - numMaxRooms;
+      const numSessions = n;
       if (minMembers <= numMinMembers && n >= numMaxMembers) {
-        let group = new Group(members, n, numMaxMembers, numMaxRooms, numMinMembers, numMinRooms, numSessions, null);
+        const group = new Group(members, n, numMaxMembers, numMaxRooms, numMinMembers, numMinRooms, numSessions, null);
         groups.push(group);
       }
     }
@@ -180,49 +180,10 @@ function uniq(array) {
   }
   return uniquedArray;
 }
-function test() {
-  let members = [];
-  for (let i = 1; i <= 50; i++) {
-    members.push(new Member([i.toString(), "member" + i]));
-  }
-  let group = makeGroups(members, 3)[1];
-  let max = group.numMaxMembers;
-  let min = group.numMinMembers;
-  let dic = {};
-  for (let i = 1; i <= 50; i++) {
-    dic[i.toString()] = [];
-  }
-  for (let session of group.allSessions()) {
-    for (let group of session) {
-      if (group.length !== max && group.length !== min) {
-        console.log("failed test");
-        return;
-      }
-      for (let memberA of group) {
-        for (let memberB of group) {
-          if (memberA.data[0] != memberB.data[0]) {
-            dic[memberA.data[0]].push(memberB.data[0]);
-          }
-        }
-      }
-    }
-
-    for (let i = 1; i <= 50; i++) {
-      dic[i.toString()].sort(function(a, b) {
-        return a - b;
-      });
-      if (dic[i.toString()].length != uniq(dic[i.toString()]).length) {
-        console.log("failed test");
-        return;
-      }
-    }
-  }
-  console.log("success");
-}
 
 module.exports = {
-  Member: Member,
-  Group: Group,
+  Member,
+  Group,
   makeGroups: makeGroups,
   parseTsv: parseTsv,
 }
